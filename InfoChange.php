@@ -3,22 +3,7 @@
     require_once('database.php');
     require_once('Functions.php');
     session_start();
-    if(!$_SESSION['loggedIn'])header("Location:Login.php");
-
-    if(isset($_POST["submit"])){
-      if(empty($_POST["fruitID"]) || empty($_POST["fruitName"]) || empty($_POST["fruitOrigin"]) || empty($_POST["fruitOrganic"]) || empty($_POST["fruitPrice"]))
-      {
-          $errorMsg = '<p style="color: red; font-size: 24pt;"> ERROR: All fields cannot be blank </p>';
-      }
-      else{
-        $id = $_POST['fruitID'];
-        $name = $_POST['fruitName'];
-        $Orgin = $_POST['fruitOrigin'];
-        $organ = $_POST['fruitOrganic'];
-        $price = $_POST['fruitPrice'];
-        AddToDb($id,$name,$price,$Orgin,$organ,$db);
-      }
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +25,7 @@
       ?>
     </main>
     <p>
-      <form action="" method="post">
+      <form action="Add.php" method="post">
           <br>
           <br>
           <h2> Add Item to List</h2>
@@ -58,6 +43,17 @@
           <br>        
           <br>
           <input type='submit' name='submit' value="ADD">
+      </form>
+    </p>
+    <p>
+      <form action="Remove.php" method="post">
+        <br>
+        <br>
+        <h2> Remove Item From List By ID</h2>
+        <br>
+        <br>
+          <label>Fruit ID: </label><input type="number" name="fruitID2">
+          <input type='submit' name='submit2' value="Remove">
       </form>
     </p>
 

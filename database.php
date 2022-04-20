@@ -1,4 +1,5 @@
 <?php
+    $connect = mysqli_connect("localhost", "root", "", "hotspotfruit");
     $dsn = 'mysql:host=localhost:3306;dbname=hotspotfruit';
     $username = 'root';
     $password = ''; //Enter your default pass
