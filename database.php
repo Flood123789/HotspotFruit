@@ -1,7 +1,7 @@
 <?php
     $dsn = 'mysql:host=localhost:3306;dbname=hotspotfruit';
     $username = 'root';
-    $password = 'pass'; //Enter your default pass
+    $password = ''; //Enter your default pass
 
     try {
         $db = new PDO($dsn, $username, $password);

@@ -2,12 +2,10 @@
     // Will check Database avalability
 
     require_once('database.php');
-
-    $sql_fruits = "SELECT * FROM fruitdata
-                    ORDER BY ID";
-
-    $sql_logins = "SELECT * FROM logindata
-                    ORDER BY ID";
+    require_once('Functions.php');
+    session_start();
+    if(!$_SESSION['loggedIn'])header("Location:Login.php");
+    $sql_fruits = sql_fruits($db);
 
 ?>
 
@@ -37,8 +35,12 @@
             <li><a href="#tbt">Exotics</a></li>
             <li><a href="cart.php">Cart</a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="Login.php">Log In</a></li>
         </ul>
     </div>
+
+    <main>
+        <?php UserLookup($sql_fruits);?>
+    </main>
 </body>
 </html>
