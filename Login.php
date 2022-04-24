@@ -58,6 +58,11 @@
             <br>
             <input type="submit" value="Login" name="login">
             <input type='button' value='logout' name='logout' onclick="session_destroy()">
+            <br>
+            <br>
+            <label>No account? Create one now!</label>
+            <br>
+            <a href='CreateAccount.php'>Create Account!</a>
         </form>
 
         <?php

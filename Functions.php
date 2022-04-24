@@ -111,4 +111,19 @@ function RemoveFromDb($id,$db){
     }
 }
 
+function CreateAccount($email,$uname,$password,$db){
+    try{
+        $Email = strval($email);
+        $Uname = strval($uname);
+        $Password = strval($password);
+   
+        $insert = "INSERT INTO `logindata` ( `UserName`, `Passwd`, `Email`) VALUES('$Uname', '$Password','$Email')";
+
+        $db->exec($insert);
+    }catch(Exception $e){
+        print($e);
+        print('<br>');
+        print("$insert");
+    }
+}
 ?>
