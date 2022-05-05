@@ -19,7 +19,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <form method="POST" action='CreateAcc.php'>

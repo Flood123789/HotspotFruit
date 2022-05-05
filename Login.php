@@ -34,7 +34,7 @@
                 }       
             }
         }
-    
+    include('Taskbar.php');
 ?>
 
 
@@ -47,7 +47,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -56,8 +56,8 @@
             <br>
             <input type="password" name="pass">
             <br>
-            <input type="submit" value="Login" name="login">
-            <input type='button' value='logout' name='logout' onclick="session_destroy()">
+            <input type="submit" value="Login" name="login" style="">
+            <input type='button' value='logout' name='logout' onclick="session_destroy()" style="">
             <br>
             <br>
             <label>No account? Create one now!</label>
