@@ -3,9 +3,13 @@
 
     require_once('database.php');
     require_once('Functions.php');
-    session_start();
-    if(!$_SESSION['loggedIn'])header("Location:Login.php");
     $sql_fruits = sql_fruits($db);
+    session_start();
+
+    if(!$_SESSION['loggedIn'])header("Location:Login.php");
+    
+
+
 
 
 ?>
@@ -30,6 +34,14 @@
 </div>
     <div class="menu">
         <ul>
+            <?php
+                 if($_SESSION['Type'] == 'A'){
+                echo "admin controls:  .";
+                echo "<a href='index.php'>Home</a>";
+                echo "<a href='infochange.php'>EDIT DATA</a>";
+                echo "<a href='Orderviewer.php'>Customer Orders</a>";
+                }           
+                ?>
             <li><a href="popular.php">Popular Picks</a></li>
             <li><a href="AllFruits.php">All our Fruits</a></li>
             <li><a href="exotics.php">Exotics</a></li>

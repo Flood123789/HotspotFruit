@@ -142,6 +142,7 @@ function addItem($item, $quantity){
         return;
     }
 
+    
     $cost= $fruits[$item]['cost'];
     $total = $cost * $quantity;
     $item = array(
@@ -175,6 +176,63 @@ function update_item($item, $quantity){
                 $_SESSION['cart'][$item]['$qty'];
             $_SESSION['cart'][$item]['total'] = $total;
         }
+    }
+}
+
+function OrderLookup($db){
+    $callTable = "SELECT * FROM orders 
+    ORDER BY OrderID";
+    $Fulltable = $db->query($callTable);
+    $Fulltable->execute();
+
+
+    echo "<table class='center'>";
+            echo "<tr>";
+                echo "<th>orderID</th>";
+                echo "<th>UserID</th>";
+                echo "<th>Item</th>";
+                echo "<th>Cost</th>";                     
+            echo "</tr>";
+        while($row = $Fulltable->fetch()){
+            echo "<tr>";
+                echo "<td>" . $row['OrderID'] . "</td>";
+                echo "<td>" . $row['UserID'] . "</td>";
+                echo "<td>" . $row['Item'] . "</td>";
+                echo "<td>" . $row['Cost'] . "</td>";
+        }
+        echo "</table>";
+
+
+
+
+
+
+    return $Fulltable;
+}
+
+function AddOrderToDb($UserID,$Item,$Cost,$db){
+    try{
+        $insert = "INSERT INTO `Orders` (`UserID`, `Item`, `Cost`) 
+        VALUES('$UserID', '$Item', '$Cost')";
+
+        $db->exec($insert);
+    }catch(Exception $e){
+        print($e);
+        print('<br>');
+        print("$insert");
+    }
+}
+
+function RemoveOrderFromDb($id,$db){
+    try{
+        $ID = intval($id);
+        $remove = "DELETE FROM `Orders` WHERE OrderID ='$ID' ";
+        $db->exec($remove);
+    }
+    catch(Exception $e){
+        print($e);
+        print('<br>');
+
     }
 }
 ?>

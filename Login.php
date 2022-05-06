@@ -4,6 +4,12 @@
         require_once('Functions.php');
         
 
+        if(isset($_POST["logout"])){
+            session_destroy();
+            echo "logged out";
+            //header("Location:Login.php");
+        }
+
         if(isset($_POST["login"]))
         {
             if(empty($_POST["uname"]) || empty($_POST["pass"]))
@@ -26,13 +32,26 @@
                 $counter = $statement->rowCount();
     
                 if($counter > 0){
+                
                     $_SESSION["uname"] = $_POST["uname"];
                     $_SESSION['loggedIn'] = true;
+                    $_SESSION['Type'] = 13;
+
+                    $uname =$_SESSION['uname'];
+
+                    $query2 = $db->query($call = "SELECT * from logindata where username = '$uname'");
+                    while($row = $query2->fetch()){
+                        $_SESSION['Type'] = $row['Type'];
+                    }
+                    print_r($_SESSION);
+            
                     header("Location:index.php");
                 } else {
                     $errorMsg = '<p style="color: red; font-size: 24pt;"> ERROR: Username and/or password are incorrect! </p>';
                 }       
             }
+
+
         }
     include('Taskbar.php');
 ?>
@@ -51,13 +70,14 @@
     <title>Document</title>
 </head>
 <body>
+    <main>
         <form method="POST">
             <input type="text" name="uname">
             <br>
             <input type="password" name="pass">
             <br>
             <input type="submit" value="Login" name="login" style="">
-            <input type='button' value='logout' name='logout' onclick="session_destroy()" style="">
+            <input type='submit' value='logout' name='logout' onclick="session_destroy()" style="">
             <br>
             <br>
             <label>No account? Create one now!</label>
@@ -70,5 +90,6 @@
                 echo '<span>' . $errorMsg . '</span>';
             }
         ?>
+    <main>
     </body>
 </html>

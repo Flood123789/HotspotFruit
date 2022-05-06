@@ -1,12 +1,12 @@
 <?php
     // Will check Database avalability.
-    require_once('database.php');
-    require_once('Functions.php');
+    require_once('../database.php');
+    require_once('../Functions.php');
     session_start();
 
 
 
-    if(!$_SESSION['loggedIn'])header("Location:Login.php");
+    if(!$_SESSION['loggedIn'])header("Location:../Login.php");
 
         if(isset($_POST["submit"])){
         if(empty($_POST["fruitID"]) || empty($_POST["fruitName"]) || empty($_POST["fruitOrigin"]) || empty($_POST["fruitOrganic"]) || empty($_POST["fruitPrice"]))
@@ -22,7 +22,7 @@
             $organ = $_POST['fruitOrganic'];
             $price = $_POST['fruitPrice'];
             AddToDb($id,$name,$price,$Orgin,$organ,$db);
-            header("Location:InfoChange.php");
+            header("Location:../InfoChange.php");
         }
         }
 

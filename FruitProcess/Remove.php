@@ -1,12 +1,12 @@
 <?php
     // Will check Database avalability.
-    require_once('database.php');
-    require_once('Functions.php');
+    require_once('../database.php');
+    require_once('../Functions.php');
     session_start();
 
 
 
-    if(!$_SESSION['loggedIn'])header("Location:Login.php");
+    if(!$_SESSION['loggedIn'])header("Location:../Login.php");
 
         if(isset($_POST["submit2"])){
         if(empty($_POST["fruitID2"]))
@@ -18,7 +18,7 @@
         else{
             $id = $_POST['fruitID2'];
             RemoveFromDb($id,$db);
-            header("Location:InfoChange.php");
+            header("Location:../InfoChange.php");
         }
         }
 

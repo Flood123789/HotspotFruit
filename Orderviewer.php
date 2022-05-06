@@ -28,7 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <title>Admin Editor</title>
+    <title>Admin Order Editor</title>
     
 </head>
 <body>
@@ -40,39 +40,34 @@
         }
 
         //prints table 
-        $Fulltable = sql_fruits($db);
-        Adminlookup($Fulltable);
+        OrderLookup($db);
       ?>
     </main>
     <p>
-      <form action="FruitProcess/Add.php" method="post">
+      <form action="OrderProcess/Add.php" method="post">
           <br>
           <br>
           <h2> Add Item to List</h2>
           <br>
           <br>
-          <label>Fruit ID: </label><input type="number" name="fruitID">
-          <br>
-          <label>Fruit Name: </label><input type="text" name="fruitName">
+          <label>UserID: </label><input type="text" name="UserID">
           <br> 
-          <label>Fruit Origin: </label><input type="text" name="fruitOrigin">
+          <label>Item: </label><input type="text" name="Item">
           <br>
-          <label>Fruit Organic: </label><input type="text" name="fruitOrganic">
-          <br>
-          <label>Fruit Price: </label><input type="text" name="fruitPrice">
-          <br>        
+          <label>Cost: </label><input type="text" name="Cost">
+          <br>       
           <br>
           <input type='submit' name='submit' value="ADD">
       </form>
     </p>
     <p>
-      <form action="FruitProcess/Remove.php" method="post">
+      <form action="OrderProcess/Remove.php" method="post">
         <br>
         <br>
         <h2> Remove Item From List By ID</h2>
         <br>
         <br>
-          <label>Fruit ID: </label><input type="number" name="fruitID2">
+          <label>Order ID: </label><input type="number" name="OrderID">
           <input type='submit' name='submit2' value="Remove">
       </form>
     </p>

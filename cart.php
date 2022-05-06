@@ -16,26 +16,26 @@
     $foundProd =$prod->fetchAll((PDO::FETCH_ASSOC));
 
     $fruits = array();
-$fruits['fruit-1'] = array('Banana', 'price' => '2.99');
-$fruits['fruit-2'] = array('Acai', 'price' => '39.99');
-$fruits['fruit-3'] = array('Star Fruit', 'price' => '6.99');
-$fruits['fruit-4'] = array('Jack Fruit', 'price' => '5.99');
-$fruits['fruit-5'] = array('Dragon Fruit', 'price' => '5.99');
-$fruits['fruit-6'] = array('Bread Fruit', 'price' => '4.99');
-$fruits['fruit-7'] = array('Guava', 'price' => '1.99');
-$fruits['fruit-8'] = array('Passion Fruit', 'price' => '24.99');
-$fruits['fruit-9'] = array('Durian', 'price' => '13.99');
-$fruits['fruit-10'] = array('Horned Melon', 'price' => '4.99');
-$fruits['fruit-11'] = array('Mangosteen', 'price' => '8.99');
-$fruits['fruit-12'] = array('HoneyCrisp Apple', 'price' => '2.99');
+    $fruits['fruit-1'] = array('Banana', 'price' => '2.99');
+    $fruits['fruit-2'] = array('Acai', 'price' => '39.99');
+    $fruits['fruit-3'] = array('Star Fruit', 'price' => '6.99');
+    $fruits['fruit-4'] = array('Jack Fruit', 'price' => '5.99');
+    $fruits['fruit-5'] = array('Dragon Fruit', 'price' => '5.99');
+    $fruits['fruit-6'] = array('Bread Fruit', 'price' => '4.99');
+    $fruits['fruit-7'] = array('Guava', 'price' => '1.99');
+    $fruits['fruit-8'] = array('Passion Fruit', 'price' => '24.99');
+    $fruits['fruit-9'] = array('Durian', 'price' => '13.99');
+    $fruits['fruit-10'] = array('Horned Melon', 'price' => '4.99');
+    $fruits['fruit-11'] = array('Mangosteen', 'price' => '8.99');
+    $fruits['fruit-12'] = array('HoneyCrisp Apple', 'price' => '2.99');
 
-$action = filter_input(INPUT_POST, 'action');
-if($action === NULL){
-    $action = filter_input(INPUT_GET, 'action');
-    if($action === Null){
-        $action = 'show_add_item';
+    $action = filter_input(INPUT_POST, 'action');
+    if($action === NULL){
+        $action = filter_input(INPUT_GET, 'action');
+        if($action === Null){
+            $action = 'show_add_item';
+        }
     }
-}
 
 switch($action){
     case 'add':
